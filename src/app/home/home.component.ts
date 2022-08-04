@@ -9,6 +9,9 @@ export class HomeComponent implements OnInit {
 
   // homeTitle = "Welcome to the homepage";
   homeTitle = "Welcome to the ninja directory";
+  myString = "I like chicken";
+  // myBoolean = true;
+  myBoolean = false;
 
   constructor() { }
 

@@ -3,3 +3,22 @@
   {{ homeTitle }}
 </p>
 <ng-content></ng-content>
+
+<!-- property binding -->
+
+<!-- static -->
+<!-- <input value="i love chicken" /> -->
+
+<!-- dynamic -->
+<!-- <input [value]="myString" /> -->
+<!-- <input [required]="myBoolean" /> -->
+
+<!-- working -->
+<!-- <input value="myString" /> -->
+<!-- not working -->
+<!-- <input required="myBoolean" /> -->
+
+<!-- working -->
+<input value="{{ myString }}" />
+<!-- working -->
+<input required="{{ myBoolean }}" />
