@@ -26,6 +26,9 @@
 >
   <!-- UPDATE: in ver 14.1.1+ this worked without having to inject it to the app.component.ts -->
   <!-- This is referred to as nesting components -->
-  <app-home></app-home>
+  <!-- If you put "hello there!" it will not show in the output unless you add <ng-content> in home.component.html -->
+  <app-home>
+    hello there!
+  </app-home>
 
 </section>
