@@ -13,6 +13,12 @@ export class HomeComponent implements OnInit {
   // myBoolean = true;
   myBoolean = false;
 
+  alertMe(valParam:any) {
+
+    let val = valParam
+    alert(val);
+  }
+
   constructor() { }
 
   // this will initialize whenever this component is created
