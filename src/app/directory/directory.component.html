@@ -1,7 +1,20 @@
-<p>
+<!-- Directives Introduction -->
+<!-- ATTRIBUTE DIRECTIVES -->
+<p
+  [ngClass]="classes"
+>
   directory works!
 </p>
 
-<p>
-  {{ ninja }}
+<!-- STRUCTURAL DIRECTIVES -->
+<p
+  *ngIf="test"
+>
+  Only show if test is true
 </p>
+
+<style>
+  .blue {color: blue;}
+  .red {color: red;}
+  .underline {text-decoration: underline;}
+</style>

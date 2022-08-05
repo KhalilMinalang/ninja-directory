@@ -21,18 +21,18 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app works!, woop woop.';
-  name = 'ninja';
+  // name = 'ninja';
 
-  ninja = {
-    name: "Ryu",
-    belt: "Red"
-  }
+  // ninja = {
+  //   name: "Ryu",
+  //   belt: "Red"
+  // }
 
   // yell(e) {
-  yell(e:Event) {
-    alert('I am yelling');
-    console.log(e)
+  // yell(e:Event) {
+  //   alert('I am yelling');
+  //   console.log(e)
 
-  }
+  // }
 
 }
