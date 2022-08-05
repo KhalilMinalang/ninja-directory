@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +14,15 @@ export class HomeComponent implements OnInit {
   // myBoolean = true;
   myBoolean = false;
 
-  ninja = {
-    name: "Yoshi",
-    belt: "Black"
-  }
+  // ninja = {
+  //   name: "Yoshi",
+  //   belt: "Black"
+  // }
+
+  // this doesn't work in ver 14.1.1+ this
+  // @Input() ninja;
+  @Input() ninja : any;
+  // @Input
 
   alertMe(valParam:any) {
 
