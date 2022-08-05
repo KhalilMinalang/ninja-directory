@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +23,13 @@ export class HomeComponent implements OnInit {
   // @Input() ninja;
   @Input() ninja : any;
   // @Input
+
+  // Custom Event Binding
+  @Output() onYell = new EventEmitter;
+// Custom Event Binding
+  fireYellEvent(e:Event) {
+    this.onYell.emit(e);
+  }
 
   alertMe(valParam:any) {
 

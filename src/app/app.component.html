@@ -32,8 +32,10 @@
   </app-home> -->
 
   <!-- Custom property binding -->
+  <!-- Custom Event Binding -->
   <app-home
     [ninja]="ninja"
+    (onYell)="yell($event)"
   >
     hello there!
   </app-home>
