@@ -6,17 +6,28 @@ import { HomeComponent } from './home/home.component';
 
 // REQUIRED
 import {FormsModule} from '@angular/forms';
+import { DirectoryComponent } from './directory/directory.component';
+
+import { RouterModule } from '@angular/router';
+
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DirectoryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, // REQUIRED
+
+    RouterModule.forRoot(APP_ROUTES),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+    // APP_ROUTES_PROVIDER
+  ]
 })
 export class AppModule { }
