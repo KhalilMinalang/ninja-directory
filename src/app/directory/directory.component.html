@@ -36,15 +36,27 @@
     >
 
       <!-- Belt Color -->
-      <span
+      <!-- <span
         [ngStyle]="{'background': ninja.belt}"
       >
         {{ ninja.belt }} belt
+      </span> -->
+
+      <!-- Pipes -->
+      <span
+        [ngStyle]="{'background': ninja.belt, 'color': 'white'}"
+      >
+        {{ ninja.belt | slice:1:3 }} belt
       </span>
 
       <!-- Ninja Name -->
-      <h3>
+      <!-- <h3>
         {{ ninja.name }}
+      </h3> -->
+
+      <!-- Pipes -->
+      <h3>
+        {{ ninja.name | uppercase  }}
       </h3>
 
       <!-- <div
