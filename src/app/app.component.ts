@@ -17,6 +17,7 @@ import { Component } from '@angular/core';
 
   // in ver 14.1.1+ this will throw error
   // directives: [HomeComponent],
+
 })
 
 export class AppComponent {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
 
 // import { FilterPipe } from '../filter.pipe';
+
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-directory',
@@ -10,6 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 
   // pipes: [
   //   FilterPipe,
+  // ],
+
+  // in version 14+ no need for this
+  // providers: [
+  //   LoggingService
+
   // ],
 
 })
@@ -46,9 +54,20 @@ export class DirectoryComponent implements OnInit {
 
   ];
 
-  constructor(private route: ActivatedRoute) {
+  // private logger: LoggingService;
+
+  // constructor(private route: ActivatedRoute) {
+  constructor(
+    private loggger: LoggingService
+  ) {
 
     // this.ninja = route.snapshot.params['ninja'];
+    // this.logit();
+
+  }
+
+  logit() {
+    this.loggger.log();
   }
 
   ngOnInit(): void {

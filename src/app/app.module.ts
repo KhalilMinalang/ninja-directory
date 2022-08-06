@@ -18,7 +18,9 @@ import { FilterPipe } from './filter.pipe';
     AppComponent,
     HomeComponent,
     DirectoryComponent,
-    FilterPipe
+    FilterPipe,
+
+
   ],
   imports: [
     BrowserModule,
@@ -26,10 +28,12 @@ import { FilterPipe } from './filter.pipe';
 
     RouterModule.forRoot(APP_ROUTES),
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [
     AppComponent,
-    // APP_ROUTES_PROVIDER
+    // APP_ROUTES_PROVIDER,
+
   ]
 })
 export class AppModule { }

@@ -1,9 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { LoggingService } from '../logging.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+
+  // in version 14+ no need for this
+  // providers: [
+  //   LoggingService
+  // ],
 })
 
 export class HomeComponent implements OnInit {
@@ -37,7 +44,16 @@ export class HomeComponent implements OnInit {
   //   alert(val);
   // }
 
-  constructor() { }
+
+  constructor(
+    private logger: LoggingService
+  ) {
+
+  }
+
+  logit() {
+    this.logger.log();
+  }
 
   // this will initialize whenever this component is created
   ngOnInit(): void {
