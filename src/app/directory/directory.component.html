@@ -23,12 +23,27 @@
   Ninja Listing
 </h2>
 
+<form
+  id="filter"
+>
+  <label>
+    Filter Ninjas by name:
+  </label>
+
+  <input
+    type="text"
+    name="term"
+    [(ngModel)]="term"
+  />
+
+</form>
+
 <ul
   id="ninja-listing"
 >
 
   <li
-   *ngFor="let ninja of ninjas"
+   *ngFor="let ninja of ninjas | filter:term"
   >
 
     <div
@@ -43,10 +58,16 @@
       </span> -->
 
       <!-- Pipes -->
-      <span
+      <!-- <span
         [ngStyle]="{'background': ninja.belt, 'color': 'white'}"
       >
         {{ ninja.belt | slice:1:3 }} belt
+      </span> -->
+
+      <span
+        [ngStyle]="{'background': ninja.belt, 'color': 'white'}"
+      >
+        {{ ninja.belt }} belt
       </span>
 
       <!-- Ninja Name -->
@@ -55,6 +76,11 @@
       </h3> -->
 
       <!-- Pipes -->
+      <!-- <h3>
+        {{ ninja.name | uppercase  }}
+      </h3> -->
+
+      <!-- Custom pipe -->
       <h3>
         {{ ninja.name | uppercase  }}
       </h3>

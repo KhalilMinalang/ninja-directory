@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+// import { FilterPipe } from '../filter.pipe';
+
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
-  styleUrls: ['./directory.component.css']
+  styleUrls: ['./directory.component.css'],
+
+  // pipes: [
+  //   FilterPipe,
+  // ],
+
 })
 export class DirectoryComponent implements OnInit {
 
@@ -18,7 +25,9 @@ export class DirectoryComponent implements OnInit {
   // test = true;
   // test = false;
 
-  ninjas = [
+  term = ''
+
+  ninjas:any = [
 
     {
       name: "Yoshi",
@@ -44,7 +53,7 @@ export class DirectoryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // console.log(this.ninja);
+    // console.log(this.ninjas);
   }
 
 }
