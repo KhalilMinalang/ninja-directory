@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoggingService } from '../logging.service';
 
+import { DataService } from '../data.service';
+
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
@@ -19,6 +21,11 @@ import { LoggingService } from '../logging.service';
   //   LoggingService
 
   // ],
+
+  //
+  providers: [
+    DataService
+  ],
 
 })
 export class DirectoryComponent implements OnInit {
@@ -35,30 +42,34 @@ export class DirectoryComponent implements OnInit {
 
   term = ''
 
-  ninjas:any = [
+  // ninjas:any = [
 
-    {
-      name: "Yoshi",
-      belt: "black",
-    },
+  //   {
+  //     name: "Yoshi",
+  //     belt: "black",
+  //   },
 
-    {
-      name: "Ryu",
-      belt: "red",
-    },
+  //   {
+  //     name: "Ryu",
+  //     belt: "red",
+  //   },
 
-    {
-      name: "Crystal",
-      belt: "purple",
-    },
+  //   {
+  //     name: "Crystal",
+  //     belt: "purple",
+  //   },
 
-  ];
+  // ];
+
+  //
+  ninjas:any = [];
 
   // private logger: LoggingService;
 
   // constructor(private route: ActivatedRoute) {
   constructor(
-    private loggger: LoggingService
+    private loggger: LoggingService,
+    private dataService: DataService
   ) {
 
     // this.ninja = route.snapshot.params['ninja'];
@@ -73,6 +84,10 @@ export class DirectoryComponent implements OnInit {
   ngOnInit(): void {
 
     // console.log(this.ninjas);
+    this.dataService.fetchData().subscribe(
+      // (data) => console.log(data)
+      (data) => this.ninjas = data
+    )
   }
 
 }

@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { FilterPipe } from './filter.pipe';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { FilterPipe } from './filter.pipe';
     FormsModule, // REQUIRED
 
     RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule,
   ],
   providers: [
   ],
