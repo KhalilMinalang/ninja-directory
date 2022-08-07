@@ -18,6 +18,9 @@ export class DataService {
     //   (data) => console.log(data)
     // );
 
-    return this.http.get('/assets/ninjas.json')
+    // return this.http.get('/assets/ninjas.json')
+
+
+    return this.http.get('https://nn-angular-554ed-default-rtdb.asia-southeast1.firebasedatabase.app/.json')
   }
 }
