@@ -14,7 +14,9 @@ import { initializeApp } from 'firebase/app';
 import {
   getDatabase,
   ref,
-  onValue,
+  // onValue,
+  set,
+  push,
   onChildAdded
  } from "firebase/database";
 import { environment } from 'src/environments/environment';
@@ -79,6 +81,12 @@ export class DirectoryComponent implements OnInit {
   // private logger: LoggingService;
   // items: Observable<any[]>;
 
+  name = '';
+  belt = '';
+
+  app = initializeApp(environment.firebase);
+  database = getDatabase(this.app);
+
   // constructor(private route: ActivatedRoute) {
   constructor(
     private loggger: LoggingService,
@@ -88,6 +96,8 @@ export class DirectoryComponent implements OnInit {
 
     // this.ninja = route.snapshot.params['ninja'];
     // this.logit();
+
+
 
   }
 
@@ -107,12 +117,21 @@ export class DirectoryComponent implements OnInit {
 
   //
   fbGetData() {
-    const app = initializeApp(environment.firebase);
-    const database = getDatabase(app);
 
-    const ninjaRef = ref(database, '/');
+
+    const ninjaRef = ref(this.database, '/');
     onChildAdded(ninjaRef, (snapshot) => {
       this.ninjas.push(snapshot.val());
+    });
+  }
+
+  fbPostData(name:string, belt:string) {
+
+    // console.log(this.name, this.belt)
+
+    push(ref(this.database, '/'), {
+      name: name,
+      belt: belt
     });
   }
 
