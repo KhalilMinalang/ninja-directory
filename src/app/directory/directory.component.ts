@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
 import { LoggingService } from '../logging.service';
 
 import { DataService } from '../data.service';
+// import { environment } from 'src/environments/environment.prod';
+
+// firebase API
+// declare var fbdatabase: any;
+import { initializeApp } from 'firebase/app';
+import {
+  getDatabase,
+  ref,
+  onValue,
+  onChildAdded
+ } from "firebase/database";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-directory',
@@ -65,11 +77,13 @@ export class DirectoryComponent implements OnInit {
   ninjas:any = [];
 
   // private logger: LoggingService;
+  // items: Observable<any[]>;
 
   // constructor(private route: ActivatedRoute) {
   constructor(
     private loggger: LoggingService,
-    private dataService: DataService
+    private dataService: DataService,
+    // db: AngularFireDatabase
   ) {
 
     // this.ninja = route.snapshot.params['ninja'];
@@ -84,10 +98,22 @@ export class DirectoryComponent implements OnInit {
   ngOnInit(): void {
 
     // console.log(this.ninjas);
-    this.dataService.fetchData().subscribe(
-      // (data) => console.log(data)
-      (data) => this.ninjas = data
-    )
+    // this.dataService.fetchData().subscribe(
+    //   (data) => this.ninjas = data
+    // )
+
+    this.fbGetData();
+  }
+
+  //
+  fbGetData() {
+    const app = initializeApp(environment.firebase);
+    const database = getDatabase(app);
+
+    const ninjaRef = ref(database, '/');
+    onChildAdded(ninjaRef, (snapshot) => {
+      this.ninjas.push(snapshot.val());
+    });
   }
 
 }

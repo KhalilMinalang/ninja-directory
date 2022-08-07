@@ -15,6 +15,12 @@ import { FilterPipe } from './filter.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
 
+//
+// import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFireDatabase  } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule, // REQUIRED
+
+    // AngularFireModule.initializeApp(environment.firebase),
 
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
